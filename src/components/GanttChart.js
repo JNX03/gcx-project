@@ -1,70 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
 import gantt from 'dhtmlx-gantt';
 import { ref, onValue, set } from 'firebase/database';
 import { db } from '../firebase';
-import { ChromePicker } from 'react-color';
 
 const GanttChart = ({ teamName }) => {
-  const [selectedTaskId, setSelectedTaskId] = useState(null);
-  const [taskColor, setTaskColor] = useState('#3e5f8a');
+  const ganttContainerRef = useRef(null);  // Ref to track the Gantt container
 
   useEffect(() => {
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
 
+    // Fetch tasks and ensure correct date format
     onValue(taskRef, (snapshot) => {
       const taskList = snapshot.val() || [];
+      const formattedTaskList = Array.isArray(taskList) ? taskList : Object.values(taskList);
+
+      const tasksWithFormattedDates = formattedTaskList.map(task => ({
+        ...task,
+        start_date: formatValidDate(task.start_date),
+        end_date: formatValidDate(task.end_date),
+      }));
+
       gantt.clearAll();
-      gantt.parse({ data: taskList });
+      gantt.parse({ data: tasksWithFormattedDates });
     });
 
-    gantt.init('gantt_here');
+    // Initialize Gantt
+    gantt.init(ganttContainerRef.current);
 
-    gantt.attachEvent('onAfterTaskAdd', saveGanttTasks);
-    gantt.attachEvent('onAfterTaskUpdate', saveGanttTasks);
-    gantt.attachEvent('onAfterTaskDelete', saveGanttTasks);
+    // Resize Gantt on window resize
+    window.addEventListener('resize', () => gantt.render());
 
-    // Custom event to select a task and show color picker
-    gantt.attachEvent('onTaskClick', function (id) {
-      setSelectedTaskId(id);
-      const task = gantt.getTask(id);
-      setTaskColor(task.color || '#3e5f8a');
-      return true;
-    });
+    return () => {
+      window.removeEventListener('resize', () => gantt.render());
+    };
   }, [teamName]);
 
+  // Save task changes to Firebase
   const saveGanttTasks = () => {
     const tasks = gantt.serialize().data;
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
     set(taskRef, tasks);
   };
 
-  const handleColorChange = (color) => {
-    setTaskColor(color.hex);
-    if (selectedTaskId) {
-      const task = gantt.getTask(selectedTaskId);
-      task.color = color.hex;  // Set the task-specific color
-      gantt.updateTask(selectedTaskId);  // Update task color
-      saveGanttTasks();  // Save changes to Firebase
-    }
-  };
-
-  gantt.templates.task_class = function (start, end, task) {
-    return task.color ? 'custom-task-' + task.id : '';  // Apply color per task
+  // Format date to ensure it's valid
+  const formatValidDate = (date) => {
+    if (!date) return new Date(); // If date is missing, return current date
+    const parsedDate = new Date(date);
+    return isNaN(parsedDate.getTime()) ? new Date() : parsedDate;  // If invalid date, return current date
   };
 
   return (
-    <div style={{ display: 'flex', width: '100%' }}>
-      <div id="gantt_here" style={{ width: '75%', height: '90vh' }}></div>
-      <div className="settings-sidebar" style={{ width: '25%', padding: '10px', backgroundColor: '#1e3a5f', color: 'white' }}>
-        <h3>Task Settings</h3>
-        {selectedTaskId && (
-          <>
-            <h4>Customize Task Color</h4>
-            <ChromePicker color={taskColor} onChange={handleColorChange} />
-          </>
-        )}
-      </div>
+    <div style={{ width: '100%', height: '90vh' }}>
+      <div ref={ganttContainerRef} id="gantt_here" style={{ width: '100%', height: '100%' }}></div>
     </div>
   );
 };

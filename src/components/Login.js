@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ref, set, get, child } from 'firebase/database';
 import { db } from '../firebase';
+import '../login.css';
 
 const Login = ({ onLoginSuccess }) => {
   const [teamName, setTeamName] = useState('');

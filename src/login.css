@@ -1,0 +1,104 @@
+/* Login/Signup page container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #1a1d24;  /* Darker blue-black background */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    color: #e0e6ed; /* Softer white for text */
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #20e3b2;  /* Modern teal for contrast */
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff5370;  /* Soft red for error messages */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Input fields */
+.input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #2d3748;
+    background-color: #2d3748;  /* Darker background for input fields */
+    color: #e0e6ed;
+    font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input::placeholder {
+    color: #8892b0;  /* Slightly lighter for modern feel */
+}
+
+.input:focus {
+    outline: none;
+    border: 2px solid #20e3b2;  /* Teal border on focus */
+    box-shadow: 0 0 5px rgba(32, 227, 178, 0.5); /* Teal glow on focus */
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #20e3b2;  /* Teal button */
+    color: #1a1d24;  /* Darker text for contrast */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #16b88e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 184, 142, 0.5); /* Modern glow effect */
+}
+
+/* Toggle between Login and Signup */
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+    color: #20e3b2;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.login-container p:hover {
+    text-decoration: underline;
+    color: #16b88e; /* Slight color change on hover */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 30px;
+        margin: 30px auto;
+    }
+    
+    .login-container h2 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .input {
+        padding: 10px;
+    }
+}

@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GanttChart from './components/GanttChart';
 import TodoList from './components/TodoList';
+import CalendarView from './components/Calendar';
 import Login from './components/Login';
 import './App.css';
 
 function App() {
-  const [teamName, setTeamName] = useState(null);  // Track logged-in team
+  const [teamName, setTeamName] = useState(null);
 
   const handleLoginSuccess = (teamName) => {
-    setTeamName(teamName);  // Set team name on successful login
+    setTeamName(teamName);
   };
 
   return (
@@ -22,6 +23,7 @@ function App() {
               <>
                 <Link to="/gantt">Gantt Chart</Link>
                 <Link to="/todolist">To-Do List</Link>
+                <Link to="/calendar">Calendar</Link>
               </>
             )}
           </div>
@@ -42,6 +44,7 @@ function App() {
             <>
               <Route path="/gantt" element={<GanttChart teamName={teamName} />} />
               <Route path="/todolist" element={<TodoList teamName={teamName} />} />
+              <Route path="/calendar" element={<CalendarView teamName={teamName} />} />
             </>
           )}
         </Routes>

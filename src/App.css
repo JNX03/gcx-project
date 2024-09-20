@@ -16,8 +16,8 @@ html, body, #root {
   height: 100%;
   text-align: center;
   font-family: Arial, sans-serif;
-  background-color: #1a2238; /* Dark Blue Background */
-  color: white;
+  background-color: #121212; /* Dark Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
 }
 
 .navbar {
@@ -25,13 +25,13 @@ html, body, #root {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #1e3a5f; /* Dark Blue */
-  color: white;
+  background-color: #1c1c1c; /* Slightly Lighter Black */
+  color: #e0e0e0;
 }
 
 .nav-links a {
   margin: 0 15px;
-  color: white;
+  color: #e0e0e0;
   text-decoration: none;
   font-weight: bold;
 }
@@ -53,17 +53,17 @@ html, body, #root {
 .todo-input {
   padding: 8px;
   margin-right: 10px;
-  background-color: #1e3a5f; /* Dark Blue */
-  color: white;
-  border: 1px solid white;
+  background-color: #1c1c1c; /* Darker Input Background */
+  color: #e0e0e0;
+  border: 1px solid #e0e0e0;
 }
 
 .add-button,
 .delete-button {
   padding: 8px 16px;
   cursor: pointer;
-  background-color: #3e5f8a; /* Slightly lighter blue */
-  color: white;
+  background-color: #282828; /* Gray Button Background */
+  color: #e0e0e0;
   border: none;
   margin-left: 5px;
 }
@@ -71,8 +71,8 @@ html, body, #root {
 .todo-list-item {
   padding: 16px;
   margin: 4px;
-  background-color: #3e5f8a; /* Slightly lighter blue */
-  color: white;
+  background-color: #282828; /* Gray Background for List Items */
+  color: #e0e0e0;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -81,7 +81,7 @@ html, body, #root {
 .todo-list-item button {
   background-color: #f44336; /* Delete button color */
   border: none;
-  color: white;
+  color: #e0e0e0;
   padding: 5px 10px;
   cursor: pointer;
 }
@@ -91,33 +91,33 @@ html, body, #root {
 }
 
 .App.dark .navbar {
-  background-color: #1e3a5f; /* Dark Blue */
+  background-color: #1c1c1c; /* Slightly Lighter Black */
 }
 
 .App.dark .todo-list-item {
-  background-color: #3e5f8a; /* Slightly lighter blue */
+  background-color: #282828; /* Gray Background for List Items */
 }
 
 /* Gantt Chart Dark Theme */
 .dhtmlxgantt .gantt_task, 
 .dhtmlxgantt .gantt_task_scale {
-  background-color: #1a2238 !important; /* Dark background */
-  color: white !important; /* White text for contrast */
+  background-color: #121212 !important; /* Dark Background */
+  color: #e0e0e0 !important; /* Light gray text */
 }
 
 .dhtmlxgantt .gantt_task_row {
-  background-color: #1a2238 !important; /* Dark background for task rows */
+  background-color: #121212 !important; /* Dark background for task rows */
 }
 
 .dhtmlxgantt .gantt_grid_head_cell,
 .dhtmlxgantt .gantt_grid_data {
-  background-color: #1e3a5f !important; /* Dark header background */
-  color: white !important;
+  background-color: #1c1c1c !important; /* Darker header background */
+  color: #e0e0e0 !important;
 }
 
 .dhtmlxgantt .gantt_task_content {
-  background-color: #3e5f8a !important; /* Dark task background */
-  color: white !important; /* White text for task content */
+  background-color: #282828 !important; /* Gray task background */
+  color: #e0e0e0 !important; /* Light gray text for task content */
 }
 
 .dhtmlxgantt .gantt_task_progress {
@@ -125,16 +125,17 @@ html, body, #root {
 }
 
 .dhtmlxgantt .gantt_row:hover {
-  background-color: #2d4868 !important; /* Hover effect */
+  background-color: #383838 !important; /* Dark hover effect */
 }
 
 .dhtmlxgantt .gantt_selected .gantt_cell {
-  background-color: #3e5f8a !important; /* Selected task background */
+  background-color: #383838 !important; /* Selected task background */
 }
 
 .custom-task .gantt_task_content {
-  background-color: #3e5f8a !important;  /* Default to blue color */
+  background-color: #282828 !important;  /* Default to gray color */
 }
+
 .custom-task .gantt_task_content {
   background-color: var(--task-color) !important;
 }
@@ -145,24 +146,24 @@ html, body, #root {
 
 /* Dark Theme for Gantt Chart */
 .dhtmlxgantt {
-  background-color: #1a2238 !important; /* Dark background */
+  background-color: #121212 !important; /* Dark background */
 }
 
 .dhtmlxgantt .gantt_task, 
 .dhtmlxgantt .gantt_task_scale {
-  background-color: #1a2238 !important; /* Dark task scale background */
-  color: white !important;
+  background-color: #121212 !important; /* Dark task scale background */
+  color: #e0e0e0 !important;
 }
 
 .dhtmlxgantt .gantt_grid_head_cell,
 .dhtmlxgantt .gantt_grid_data {
-  background-color: #1e3a5f !important; /* Dark header background */
-  color: white !important;
+  background-color: #1c1c1c !important; /* Darker header background */
+  color: #e0e0e0 !important;
 }
 
 .dhtmlxgantt .gantt_task_content {
-  background-color: #3e5f8a !important; /* Task background */
-  color: white !important;
+  background-color: #282828 !important; /* Gray task background */
+  color: #e0e0e0 !important;
 }
 
 .dhtmlxgantt .gantt_task_progress {
@@ -170,43 +171,45 @@ html, body, #root {
 }
 
 .dhtmlxgantt .gantt_selected .gantt_cell {
-  background-color: #3e5f8a !important; /* Selected task background */
+  background-color: #383838 !important; /* Selected task background */
 }
 
 /* Dark Theme for Input Fields and Buttons */
 .input {
   padding: 8px;
   margin-right: 10px;
-  background-color: #1e3a5f;
-  color: white;
-  border: 1px solid white;
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  border: 1px solid #e0e0e0;
 }
 
 button {
   padding: 8px 16px;
   cursor: pointer;
-  background-color: #3e5f8a;
-  color: white;
+  background-color: #282828;
+  color: #e0e0e0;
   border: none;
 }
 
 button:hover {
-  background-color: #4c78b5;
+  background-color: #383838;
 }
+
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: #1e3a5f; /* Dark Blue */
-  color: white;
+  background-color: #1c1c1c; /* Slightly Lighter Black */
+  color: #e0e0e0;
   font-size: 24px;
   font-weight: bold;
 }
+
 /* General Dark Theme */
 body, .App {
-  background-color: #1a2238;
-  color: white;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 .navbar {
@@ -214,15 +217,15 @@ body, .App {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #1e3a5f;  /* Dark Blue */
-  color: white;
+  background-color: #1c1c1c; /* Darker Header Background */
+  color: #e0e0e0;
   font-size: 24px;
   font-weight: bold;
 }
 
 .nav-links a {
   margin-left: 20px;
-  color: white;
+  color: #e0e0e0;
   text-decoration: none;
   font-weight: bold;
 }
@@ -233,18 +236,328 @@ body, .App {
 
 .settings-sidebar {
   padding: 20px;
-  background-color: #1e3a5f;
-  color: white;
+  background-color: #1c1c1c;
+  color: #e0e0e0;
 }
 
 button, input {
-  background-color: #3e5f8a;
-  color: white;
+  background-color: #282828;
+  color: #e0e0e0;
   border: none;
   padding: 10px;
   margin-top: 10px;
 }
 
 button:hover {
-  background-color: #4c78b5;
+  background-color: #383838;
+}
+/* Todo Section Container */
+.todo-section {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #1c1c1c;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+
+/* Title Styling */
+.todo-section h2 {
+  font-size: 28px;
+  color: #20e3b2;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input and Button Container */
+.todo-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Input Field Styling */
+.todo-input {
+  flex: 1;
+  padding: 12px;
+  background-color: #282828;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.todo-input::placeholder {
+  color: #7a8993;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #20e3b2;
+}
+
+/* Add Button Styling */
+.add-button {
+  padding: 12px 20px;
+  background-color: #20e3b2;
+  color: #1c1c1c;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+  background-color: #16b88e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(32, 227, 178, 0.4);
+}
+
+/* No Tasks Message */
+.no-tasks {
+  text-align: center;
+  color: #7a8993;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Todo List Styling */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Todo List Item Styling */
+.todo-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #282828;
+  color: #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+}
+
+.todo-list-item.dragging {
+  background-color: #383838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  cursor: grabbing;
+}
+
+.todo-list-item:hover {
+  background-color: #333;
+}
+
+/* Delete Button Styling */
+.delete-button {
+  background-color: #f44336;
+  border: none;
+  color: #e0e0e0;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  flex-shrink: 0; /* Prevents button from shrinking or expanding */
+  max-width: 80px; /* Sets a reasonable max-width */
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Placeholder for Draggable Items */
+.todo-list .placeholder {
+  height: 40px;
+  background-color: #383838;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  opacity: 0.4;
+}
+/* Main Container */
+.calendar-container {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  padding: 20px;
+  background-color: #0e1a2b; /* Deep dark blue for main background */
+  color: white; /* General text color */
+}
+
+/* Left side for the Calendar */
+.calendar-section {
+  width: 75%;
+  height: 100%;
+  background-color: #0f223b; /* Dark blue background for calendar */
+  border-radius: 10px; /* Rounded corners for smooth design */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for Calendar collapsing between toolbar and week/month view */
+.rbc-calendar {
+  flex-grow: 1; /* Ensure the calendar takes up remaining space */
+}
+
+/* Calendar Event Colors */
+.rbc-event {
+  background-color: #20e3b2 !important; /* Teal color for events */
+  border: none !important;
+  border-radius: 5px;
+  color: #1c1c1c !important; /* Dark text for better contrast */
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.rbc-selected {
+  background-color: #16b88e !important; /* Highlight selected event */
+}
+
+.rbc-toolbar {
+  background-color: #16253c; /* Darker toolbar background */
+  color: #e0e0e0; /* Lighter text for toolbar */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px; /* Add margin to prevent collapse */
+}
+
+.rbc-toolbar button {
+  background-color: #20e3b2;
+  color: #0e1a2b;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #16b88e; /* Slightly darker teal on hover */
+}
+
+.rbc-toolbar label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Right side for Task Details (Modal, etc.) */
+.details-section {
+  width: 25%;
+  padding: 20px;
+  background-color: #0b0f4d; /* Dark background for sidebar */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Task Modal */
+.modal {
+  background-color: #16253c; /* Dark background for modal */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.modal-header {
+  font-size: 18px;
+  color: #20e3b2; /* Teal color for modal title */
+  margin-bottom: 15px;
+}
+
+.modal-body {
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.rbc-today {
+  background-color: #2400b3;
+}
+.modal input, .modal textarea {
+  width: 100%;
+  background-color: #0e1a2b; /* Dark input background */
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.modal input:focus, .modal textarea:focus {
+  outline: none;
+  border-color: #20e3b2; /* Teal border on focus */
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button, .delete-button, .close-button {
+  padding: 10px 20px;
+  background-color: #20e3b2;
+  color: #0e1a2b;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover, .close-button:hover {
+  background-color: #16b88e;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red for delete button */
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Task List Styles (Sidebar) */
+.task-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.task-item {
+  background-color: #0e1a2b;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.task-item-title {
+  color: #20e3b2;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.task-item-details {
+  font-size: 14px;
+  color: #e0e0e0;
 }
