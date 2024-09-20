@@ -20,14 +20,12 @@ const Login = ({ onLoginSuccess }) => {
     const snapshot = await get(child(ref(db), `teams/${teamName}`));
 
     if (isLogin) {
-      // Handle Login
       if (snapshot.exists() && snapshot.val().password === password) {
-        onLoginSuccess(teamName);  // Pass teamName to the parent component on successful login
+        onLoginSuccess(teamName);
       } else {
         setError('Invalid TeamName or Password');
       }
     } else {
-      // Handle Signup
       if (password !== confirmPassword) {
         setError('Passwords do not match');
         return;
@@ -36,10 +34,9 @@ const Login = ({ onLoginSuccess }) => {
         setError('TeamName already exists');
         return;
       }
-      // Save new team and password to Firebase
       await set(teamRef, {
         password,
-        gantt_tasks: []  // Initialize with empty gantt_tasks
+        gantt_tasks: []
       });
       onLoginSuccess(teamName);
     }

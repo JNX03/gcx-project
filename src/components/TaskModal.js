@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const TaskModal = ({ task, onSave, onDelete, onClose }) => {
   const [taskText, setTaskText] = useState(task.text);

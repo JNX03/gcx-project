@@ -7,7 +7,6 @@ const TodoList = ({ teamName }) => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
 
-  // Fetch data from Firebase
   useEffect(() => {
     const todoRef = ref(db, `teams/${teamName}/todos`);
     onValue(todoRef, (snapshot) => {
@@ -19,7 +18,6 @@ const TodoList = ({ teamName }) => {
     });
   }, [teamName]);
 
-  // Add a new todo item
   const addTodo = async () => {
     if (newTodo.trim() === '') return;
     const todoRef = ref(db, `teams/${teamName}/todos`);
@@ -28,15 +26,13 @@ const TodoList = ({ teamName }) => {
     setNewTodo('');
   };
 
-  // Delete a todo item
   const deleteTodo = async (id) => {
     const todoRef = ref(db, `teams/${teamName}/todos/${id}`);
     await remove(todoRef);
   };
 
-  // Handle drag-and-drop reordering
   const handleDragEnd = (result) => {
-    if (!result.destination) return; // If no destination, return
+    if (!result.destination) return;
 
     const items = Array.from(todos);
     const [reorderedItem] = items.splice(result.source.index, 1);
@@ -44,7 +40,7 @@ const TodoList = ({ teamName }) => {
     setTodos(items);
   };
 
-  console.log('Todos:', todos); // Add logging to see if todos are being rendered properly
+  console.log('Todos:', todos);
 
   return (
     <div className="todo-section">
@@ -70,18 +66,18 @@ const TodoList = ({ teamName }) => {
             {(provided) => (
               <div
                 {...provided.droppableProps}
-                ref={provided.innerRef} // Ensure the ref is correctly attached
+                ref={provided.innerRef}
                 className="todo-list"
               >
                 {todos.map((todo, index) => (
                   <Draggable
-                    key={todo.id} // Ensure a unique key
-                    draggableId={String(todo.id)} // Ensure draggableId is a string
+                    key={todo.id}
+                    draggableId={String(todo.id)}
                     index={index}
                   >
                     {(provided, snapshot) => (
                       <div
-                        ref={provided.innerRef} // Ensure the ref is correctly attached
+                        ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         className={`todo-list-item ${
@@ -99,7 +95,7 @@ const TodoList = ({ teamName }) => {
                     )}
                   </Draggable>
                 ))}
-                {provided.placeholder} {/* Ensure placeholder is rendered */}
+                {provided.placeholder} {/* Sigma Not added 😊 */}
               </div>
             )}
           </Droppable>

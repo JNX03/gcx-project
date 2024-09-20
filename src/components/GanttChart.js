@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
 import gantt from 'dhtmlx-gantt';
-import { ref, onValue, set } from 'firebase/database';
+import { ref, onValue } from 'firebase/database';
 import { db } from '../firebase';
 
 const GanttChart = ({ teamName }) => {
-  const ganttContainerRef = useRef(null);  // Ref to track the Gantt container
+  const ganttContainerRef = useRef(null); 
 
   useEffect(() => {
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
 
-    // Fetch tasks and ensure correct date format
     onValue(taskRef, (snapshot) => {
       const taskList = snapshot.val() || [];
       const formattedTaskList = Array.isArray(taskList) ? taskList : Object.values(taskList);
@@ -25,10 +24,8 @@ const GanttChart = ({ teamName }) => {
       gantt.parse({ data: tasksWithFormattedDates });
     });
 
-    // Initialize Gantt
     gantt.init(ganttContainerRef.current);
 
-    // Resize Gantt on window resize
     window.addEventListener('resize', () => gantt.render());
 
     return () => {
@@ -36,18 +33,10 @@ const GanttChart = ({ teamName }) => {
     };
   }, [teamName]);
 
-  // Save task changes to Firebase
-  const saveGanttTasks = () => {
-    const tasks = gantt.serialize().data;
-    const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
-    set(taskRef, tasks);
-  };
-
-  // Format date to ensure it's valid
   const formatValidDate = (date) => {
-    if (!date) return new Date(); // If date is missing, return current date
+    if (!date) return new Date();
     const parsedDate = new Date(date);
-    return isNaN(parsedDate.getTime()) ? new Date() : parsedDate;  // If invalid date, return current date
+    return isNaN(parsedDate.getTime()) ? new Date() : parsedDate; 
   };
 
   return (

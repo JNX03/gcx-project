@@ -4,15 +4,13 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { ref, onValue, set, push, remove } from 'firebase/database';
 import { db } from '../firebase';
-import TaskModal from './TaskModal';  // Assuming this is a modal component for task management
-
+import TaskModal from './TaskModal'; 
 const localizer = momentLocalizer(moment);
 
 const CalendarView = ({ teamName }) => {
   const [events, setEvents] = useState([]);
-  const [selectedTask, setSelectedTask] = useState(null);  // Track selected task
-  const [showModal, setShowModal] = useState(false);  // Modal for task
-
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
     onValue(taskRef, (snapshot) => {
@@ -30,21 +28,17 @@ const CalendarView = ({ teamName }) => {
     });
   }, [teamName]);
 
-  // Save task to Firebase
   const saveTask = (task) => {
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks`);
     if (task.id) {
-      // Update task
       set(ref(db, `teams/${teamName}/gantt_tasks/${task.id}`), task);
     } else {
-      // Create new task
       const newTaskRef = push(taskRef);
       set(newTaskRef, task);
     }
     setShowModal(false);
   };
 
-  // Delete task from Firebase
   const deleteTask = (taskId) => {
     const taskRef = ref(db, `teams/${teamName}/gantt_tasks/${taskId}`);
     remove(taskRef);
@@ -53,7 +47,7 @@ const CalendarView = ({ teamName }) => {
 
   const handleSelectEvent = (event) => {
     setSelectedTask(event.taskData);
-    setShowModal(true);  // Show modal for editing
+    setShowModal(true);
   };
 
   const handleSelectSlot = (slotInfo) => {
@@ -64,7 +58,7 @@ const CalendarView = ({ teamName }) => {
       end_date: slotInfo.end,
     };
     setSelectedTask(newTask);
-    setShowModal(true);  // Show modal for creating a task
+    setShowModal(true); 
   };
 
   return (
@@ -76,8 +70,8 @@ const CalendarView = ({ teamName }) => {
           startAccessor="start"
           endAccessor="end"
           selectable
-          onSelectEvent={handleSelectEvent}  // Edit event on click
-          onSelectSlot={handleSelectSlot}    // Add new event
+          onSelectEvent={handleSelectEvent}
+          onSelectSlot={handleSelectSlot}
           style={{ height: '100%' }}
         />
       </div>
