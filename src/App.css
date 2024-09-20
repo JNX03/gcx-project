@@ -1,38 +1,250 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #1a2238; /* Dark Blue Background */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #1e3a5f; /* Dark Blue */
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.todo-section {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.todo-input {
+  padding: 8px;
+  margin-right: 10px;
+  background-color: #1e3a5f; /* Dark Blue */
+  color: white;
+  border: 1px solid white;
+}
+
+.add-button,
+.delete-button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #3e5f8a; /* Slightly lighter blue */
+  color: white;
+  border: none;
+  margin-left: 5px;
+}
+
+.todo-list-item {
+  padding: 16px;
+  margin: 4px;
+  background-color: #3e5f8a; /* Slightly lighter blue */
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-list-item button {
+  background-color: #f44336; /* Delete button color */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.todo-list-item button:hover {
+  background-color: #d32f2f; /* Darker delete button on hover */
+}
+
+.App.dark .navbar {
+  background-color: #1e3a5f; /* Dark Blue */
+}
+
+.App.dark .todo-list-item {
+  background-color: #3e5f8a; /* Slightly lighter blue */
+}
+
+/* Gantt Chart Dark Theme */
+.dhtmlxgantt .gantt_task, 
+.dhtmlxgantt .gantt_task_scale {
+  background-color: #1a2238 !important; /* Dark background */
+  color: white !important; /* White text for contrast */
+}
+
+.dhtmlxgantt .gantt_task_row {
+  background-color: #1a2238 !important; /* Dark background for task rows */
+}
+
+.dhtmlxgantt .gantt_grid_head_cell,
+.dhtmlxgantt .gantt_grid_data {
+  background-color: #1e3a5f !important; /* Dark header background */
+  color: white !important;
+}
+
+.dhtmlxgantt .gantt_task_content {
+  background-color: #3e5f8a !important; /* Dark task background */
+  color: white !important; /* White text for task content */
+}
+
+.dhtmlxgantt .gantt_task_progress {
+  background-color: #f44336 !important; /* Red progress bar */
+}
+
+.dhtmlxgantt .gantt_row:hover {
+  background-color: #2d4868 !important; /* Hover effect */
+}
+
+.dhtmlxgantt .gantt_selected .gantt_cell {
+  background-color: #3e5f8a !important; /* Selected task background */
+}
+
+.custom-task .gantt_task_content {
+  background-color: #3e5f8a !important;  /* Default to blue color */
+}
+.custom-task .gantt_task_content {
+  background-color: var(--task-color) !important;
+}
+
+.custom-task .gantt_task_progress {
+  background-color: var(--progress-color) !important;
+}
+
+/* Dark Theme for Gantt Chart */
+.dhtmlxgantt {
+  background-color: #1a2238 !important; /* Dark background */
+}
+
+.dhtmlxgantt .gantt_task, 
+.dhtmlxgantt .gantt_task_scale {
+  background-color: #1a2238 !important; /* Dark task scale background */
+  color: white !important;
+}
+
+.dhtmlxgantt .gantt_grid_head_cell,
+.dhtmlxgantt .gantt_grid_data {
+  background-color: #1e3a5f !important; /* Dark header background */
+  color: white !important;
+}
+
+.dhtmlxgantt .gantt_task_content {
+  background-color: #3e5f8a !important; /* Task background */
+  color: white !important;
+}
+
+.dhtmlxgantt .gantt_task_progress {
+  background-color: #f44336 !important; /* Progress bar color */
+}
+
+.dhtmlxgantt .gantt_selected .gantt_cell {
+  background-color: #3e5f8a !important; /* Selected task background */
+}
+
+/* Dark Theme for Input Fields and Buttons */
+.input {
+  padding: 8px;
+  margin-right: 10px;
+  background-color: #1e3a5f;
+  color: white;
+  border: 1px solid white;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #3e5f8a;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #4c78b5;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #1e3a5f; /* Dark Blue */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+/* General Dark Theme */
+body, .App {
+  background-color: #1a2238;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #1e3a5f;  /* Dark Blue */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.settings-sidebar {
+  padding: 20px;
+  background-color: #1e3a5f;
+  color: white;
+}
+
+button, input {
+  background-color: #3e5f8a;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #4c78b5;
 }
