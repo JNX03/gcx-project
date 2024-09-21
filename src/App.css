@@ -561,3 +561,22 @@ button:hover {
   font-size: 14px;
   color: #e0e0e0;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.todo-item-content {
+  display: flex;
+  align-items: center;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+}
+
+.done-task {
+  text-decoration: line-through;
+  color: #aaa;
+}
