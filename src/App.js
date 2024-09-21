@@ -4,6 +4,7 @@ import GanttChart from './components/GanttChart';
 import TodoList from './components/TodoList';
 import CalendarView from './components/Calendar';
 import Login from './components/Login';
+import Uzi from './components/Uzi'; // Import Uzi component
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                 <Link to="/gantt">Gantt Chart</Link>
                 <Link to="/todolist">To-Do List</Link>
                 <Link to="/calendar">Calendar</Link>
+                <Link to="/uzi">Uzi Ai assistant</Link> {/* Add link for Uzi Multi Model */}
               </>
             )}
           </div>
@@ -45,6 +47,7 @@ function App() {
               <Route path="/gantt" element={<GanttChart teamName={teamName} />} />
               <Route path="/todolist" element={<TodoList teamName={teamName} />} />
               <Route path="/calendar" element={<CalendarView teamName={teamName} />} />
+              <Route path="/uzi" element={<Uzi />} /> {/* Add Uzi route */}
             </>
           )}
         </Routes>
