@@ -184,7 +184,7 @@ const styles = {
         margin: '20px auto',
         padding: '10px 20px',
         fontSize: '16px',
-        backgroundColor: '#4CAF50',
+        backgroundColor: 'rgb(31 25 137)',
         color: 'white',
         border: 'none',
         borderRadius: '5px',
